@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão que se Move</title>
+    <style>
+        #botao-movel {
+            position: absolute;
+            top: 80px;
+            left: 100px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: top 0.3s, left 0.3s;
+        }
+
+        /* Estilo para o botão "sim" */
+        #botao-parado {
+              position: 12px ;
+            top: 50px;
+            left: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: top 0.3s, left 0.3s;
+        }
+        #botao-parado:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 18px rgba(255, 105, 180, 0.4);
+            background: linear-gradient(90deg, #ffb347 0%, #ff69b4 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quer namorar comigo?</h1>
+    <button id="botao-movel">não</button>
+    <button id="botao-parado">sim</button>
+
+    <script>
+        const botao = document.getElementById('botao-movel');
+
+        botao.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - botao.offsetWidth;
+            const maxY = window.innerHeight - botao.offsetHeight;
+
+            const novaPosicaoX = Math.floor(Math.random() * maxX);
+            const novaPosicaoY = Math.floor(Math.random() * maxY);
+
+            botao.style.left = novaPosicaoX + 'px';
+            botao.style.top = novaPosicaoY + 'px';
+        });
+
+        const botao2 = document.getElementById('botao-parado');
+        botao2.addEventListener('click', () => {
+            alert('Oba! Sabia que você diria sim! 😊❤️');
+        });
+    </script>
+</body>
+</html>
